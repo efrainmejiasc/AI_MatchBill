@@ -1,4 +1,13 @@
-﻿using Microsoft.AspNetCore.Localization;
+﻿using AIMatchWeb.Business.Class;
+using AIMatchWeb.Business.Interfaces;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using System;
 using System.Globalization;
 
 namespace AIMatchWeb
@@ -23,6 +32,7 @@ namespace AIMatchWeb
             //services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddControllersWithViews();
             services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<IPdfToJsonBusiness, PdfToJsonBusiness>();
             services.AddDistributedMemoryCache();
             services.AddSession(options =>
             {
