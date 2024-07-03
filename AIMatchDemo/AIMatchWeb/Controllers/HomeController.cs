@@ -11,10 +11,12 @@ namespace AIMatchWeb.Controllers
     public class HomeController : Controller
     {
         private readonly IPdfToJsonBusiness _pdfToJsonBusiness;
+        private readonly IAuthGptBusiness _authGptBusiness;
 
-        public HomeController(IPdfToJsonBusiness pdfToJsonBusiness)
+        public HomeController(IPdfToJsonBusiness pdfToJsonBusiness, IAuthGptBusiness authGptBusiness)
         {
             this._pdfToJsonBusiness = pdfToJsonBusiness;
+            this._authGptBusiness = authGptBusiness;
         }
         public IActionResult Index()
         {
@@ -56,6 +58,10 @@ namespace AIMatchWeb.Controllers
 
                 }
             }
+
+            var model = new AuthGptRequestDto();
+            var result = this._authGptBusiness.PostHttpRequestAuthApiGpt<AuthGptRequestDto,AuthGptResponseDto>(model);
+
             response.Estatus = true;
             response.HttpCode = 200;
             return Json(response);

@@ -33,6 +33,7 @@ namespace AIMatchWeb
             services.AddControllersWithViews();
             services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<IPdfToJsonBusiness, PdfToJsonBusiness>();
+            services.AddTransient<IAuthGptBusiness, AuthGptBusiness>();
             services.AddDistributedMemoryCache();
             services.AddSession(options =>
             {
