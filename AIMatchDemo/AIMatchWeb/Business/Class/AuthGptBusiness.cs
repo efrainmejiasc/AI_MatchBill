@@ -26,7 +26,7 @@ namespace AIMatchWeb.Business.Class
                 }
             };
 
-            var url = "https://api.openai.com/v1/chat/completions";
+            var url = "";
             var apiKey = "";
             var responseModel = default(TOutput);
             var respuesta = string.Empty;
