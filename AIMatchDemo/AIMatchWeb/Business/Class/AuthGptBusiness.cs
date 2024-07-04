@@ -27,7 +27,7 @@ namespace AIMatchWeb.Business.Class
             };
 
             var url = "https://api.openai.com/v1/chat/completions";
-            var apiKey = "sk-proj-SWB6l82OvQ6ZxujL9eVIT3BlbkFJqvldUsfi25R1utwEqVpE";
+            var apiKey = "";
             var responseModel = default(TOutput);
             var respuesta = string.Empty;
             var content = JsonConvert.SerializeObject(requestModel);
